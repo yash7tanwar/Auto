@@ -21,10 +21,10 @@ jobs:
 
       - name: Commit & push changes  
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}  # Use the secret token  
+          GH_PAT: ${{ secrets.GH_PAT }}  
         run: |  
           git config --global user.email "github-actions[bot]@users.noreply.github.com"  
           git config --global user.name "github-actions[bot]"  
-          git add README.md  
+          git add .  # Track all untracked files
           git commit -m "AI-generated commit to maintain streak 🚀" || echo "No changes to commit"  
-          git push origin main
+          git push https://x-access-token:${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}@github.com/yash7tanwar/Auto.git HEAD:main
