@@ -22,7 +22,7 @@ jobs:
 
       - name: Commit & push changes  
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}  # Use the secret token  
+          GH_PAT: ${{ secrets.GH_PAT }}  
         run: |  
           git config --global user.email "yashvardhan.1450@gmail.com"  
           git config --global user.name "yash7tanwar"  
