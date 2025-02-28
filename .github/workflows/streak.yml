@@ -17,14 +17,14 @@ jobs:
           python-version: '3.x'  
 
       - name: Generate AI-powered script  
-        run: python generate_code.py  
+        run: python generate_code.py || echo "No script found, skipping"
 
       - name: Commit & push changes  
         env:
           GH_PAT: ${{ secrets.GH_PAT }}  # Use the secret token  
         run: |  
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"  
           git config --global user.name "github-actions[bot]"  
-          git add auto_generated_script.py  
+          git add README.md  
           git commit -m "AI-generated commit to maintain streak 🚀" || echo "No changes to commit"  
-          git push https://x-access-token:${GH_PAT}@github.com/yash7tanwar/auto.git HEAD:main  
+          git push origin main
