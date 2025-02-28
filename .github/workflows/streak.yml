@@ -1,4 +1,5 @@
 name: GitHub Streak Maintainer  
+
 on:  
   schedule:  
     - cron: '0 0 * * *'  # Runs daily at midnight  
@@ -17,14 +18,14 @@ jobs:
           python-version: '3.x'  
 
       - name: Generate AI-powered script  
-        run: python generate_code.py || echo "No script found, skipping"
+        run: python generate_code.py  
 
       - name: Commit & push changes  
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}  
+          GH_PAT: ${{ secrets.GH_PAT }}  # Use the secret token  
         run: |  
           git config --global user.email "github-actions[bot]@users.noreply.github.com"  
           git config --global user.name "github-actions[bot]"  
-          git add .  # Track all untracked files
+          git add .  # Track all untracked files  
           git commit -m "AI-generated commit to maintain streak 🚀" || echo "No changes to commit"  
-          git push https://x-access-token:${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}@github.com/yash7tanwar/Auto.git HEAD:main
+          git push origin main  # Push to the main branch
